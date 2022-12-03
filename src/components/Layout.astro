@@ -16,6 +16,28 @@ const { title } = Astro.props as Props;
   </head>
   <body>
     <slot />
+<form
+        netlify
+        netlify-honeypot
+        name="feedback"
+        method="POST"
+        action="/success"
+      >
+        <p class="hidden">
+          <label>
+            Don’t fill this out if you’re human: <input name="bot-field" />
+          </label>
+        </p>
+        <input type="hidden" name="form-name" value="feedback" />
+        <label for="name">Name</label>
+        <input id="name" type="text" name="name" />
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+        <label for="feedback">What is your feedback?</label>
+        <textarea id="feedback" wrap="soft" name="feedback" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+  </div>
   </body>
 </html>
 
